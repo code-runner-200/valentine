@@ -19,14 +19,24 @@
 
     * { box-sizing: border-box; }
 
+    html {
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
     body {
       margin: 0;
       min-height: 100svh;
       display: grid;
       place-items: center;
+      align-content: start;
+      min-block-size: 0;
       background: radial-gradient(circle at top, var(--bg2), var(--bg1));
       font-family: system-ui, sans-serif;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
       padding: 16px;
     }
 
@@ -42,7 +52,7 @@
 
     .card {
       width: min(720px, 92vw);
-      padding: 26px 22px;
+      padding: clamp(14px, 4vw, 26px) clamp(16px, 4vw, 22px);
       background: var(--card);
       backdrop-filter: blur(10px);
       border-radius: 22px;
@@ -59,6 +69,9 @@
       display: block;
       border-radius: 16px;
       box-shadow: 0 12px 40px rgba(0,0,0,.2);
+    }
+    @media (max-height: 600px) {
+      .start-photo { max-height: 28vh; }
     }
 
     .art {
@@ -136,6 +149,9 @@
       display: block;
       border-radius: 16px;
       box-shadow: 0 12px 40px rgba(0,0,0,.2);
+    }
+    @media (max-height: 600px) {
+      .result-photo { max-height: 35vh; }
     }
 
     @keyframes pop {
